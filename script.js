@@ -150,6 +150,59 @@ const questoes = [
   },
 ];
 
-console.log(`========== Quiz de Fatos Históricos ==========`);
-const jogadorNome = entradaDados.question(`Digite seu Nome: `);
+console.log(`========== Quiz de Fatos Históricos ==========\n`);
 
+const jogadorNome = entradaDados.question(`Digite seu Nome: `);
+console.log(`\n`);
+
+//-----------------funções-------------------------
+
+//Função para embaralhar o array
+const funcaoEmbaralha = (questao) => questao.sort(() => Math.random() - 0.5);
+
+//Função para selecionar as 10 primeiras perguntas
+const funcaoEscolherEmbaralhadas = (questao) => {
+  const escolhidas = funcaoEmbaralha(questao);
+  return escolhidas.slice(0, 10);
+};
+
+// Função para pergunta
+const exibirPergunta = (questao) => {
+  let qntAcertos = 0;
+  let fraseResultado = "";
+
+  questao.forEach((perguntas, index) => {
+    console.log(`${index + 1}: ${perguntas.pergunta}`);
+
+    const quiz = entradaDados.question("Digite a Resposta: ");
+    let respostas;
+
+    if (quiz !== perguntas.resposta) {
+      respostas = "Resposta Incorreta!!!\n";
+
+    } else { 
+      respostas = "Resposta Correta!!!\n";
+      qntAcertos++;
+    };
+
+    console.log(respostas);
+
+  });
+
+  if (qntAcertos <= 3) {
+    fraseResultado = "OH NÃO! Tente mais uma vez.";
+  } else if (qntAcertos >= 4 && qntAcertos <= 6) {
+    fraseResultado = "BOM TRABALHO! Pratique um pouco mais.";
+  } else if (qntAcertos >= 7 && qntAcertos <= 9) {
+    fraseResultado = "MUITO BOM! Você acertou a maioria.";
+  } else {
+    fraseResultado = "EXCELENTE! Você é um verdadeiro expert.";
+  }
+
+  console.log(`Jogador: ${jogadorNome}`);
+  console.log(`Quantidade de Acertos: ${qntAcertos}/10`);
+  console.log(fraseResultado);
+  
+};
+
+exibirPergunta(funcaoEscolherEmbaralhadas(questoes));
