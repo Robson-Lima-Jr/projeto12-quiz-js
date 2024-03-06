@@ -1,0 +1,24 @@
+{
+  "name": "projeto12-quiz",
+  "version": "1.0.0",
+  "description": "Projeto [DevMedia](https://www.devmedia.com.br/) - 20ª Missão: Quiz de Fatos Históricos - Projeto realizado em JavaScript",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robson-Lima-Jr/projeto12-quiz-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Robson-Lima-Jr/projeto12-quiz-js/issues"
+  },
+  "homepage": "https://github.com/Robson-Lima-Jr/projeto12-quiz-js#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
